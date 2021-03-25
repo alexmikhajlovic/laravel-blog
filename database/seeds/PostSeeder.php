@@ -17,10 +17,22 @@ class PostSeeder extends Seeder
         for ( $i=0; $i < 10; $i++) {
             $newPost = new Post();
 
-            // $newPost->slug = $faker->slug();
-            $newPost->title = $faker->unique()->sentence();
-            $newPost->slug = Str::slug($newPost->title);
+            $newPost->title = $faker->sentence();
             $newPost->content = $faker->text();
+
+            // Slug unique
+            $slug = Str::slug($newPost->title);
+            $princialSlug = $slug;
+
+            $presentPost = Post::where('slug', $slug)->first();
+            $counter = 1;
+             
+            while ($presentPost) {
+                $slug = $princialSlug .'-' .$counter;
+                $presentPost = Post::where('slug', $slug)->first();
+                $counter++;
+            }
+            $newPost->slug = $slug;
 
             $newPost->save();
         }

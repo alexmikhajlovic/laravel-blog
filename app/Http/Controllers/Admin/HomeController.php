@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Post;
+// use App\Post;
 
 class HomeController extends Controller
 {
@@ -15,10 +15,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data_post = Post::all();
-        $data = [
-            'posts' => $data_post
-        ];
-        return view('admin.home', $data); 
+        return view('admin.home'); 
     }
 }
