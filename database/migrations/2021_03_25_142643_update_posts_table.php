@@ -14,9 +14,9 @@ class UpdatePostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            // $table->unsignedBigInteger('user_id')->after('id');
-
-            $table->foreignId('user_id')->constrained();
+            $table->unsignedBigInteger('user_id')->after('id');
+            $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreignId('user_id')->constrained();
         });
     }
 

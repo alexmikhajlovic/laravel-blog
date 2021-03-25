@@ -17,6 +17,8 @@ class PostSeeder extends Seeder
         for ( $i=0; $i < 10; $i++) {
             $newPost = new Post();
 
+            $newPost->user_id = 1;
+
             $newPost->title = $faker->sentence();
             $newPost->content = $faker->text();
 
