@@ -17,7 +17,9 @@ class PostSeeder extends Seeder
         for ( $i=0; $i < 10; $i++) {
             $newPost = new Post();
 
-            $newPost->user_id = 1;
+            //TODO: Random user id (Must be changed)
+            $user_id = Count(User::all()->toArray());
+            $newPost->user_id = rand(1,$user_id);
 
             $newPost->title = $faker->sentence();
             $newPost->content = $faker->text();
