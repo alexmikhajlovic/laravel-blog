@@ -1,12 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.adminlayout')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-        
-            <!-- +++++ Logged successfully +++++ -->
-            <div class="card bg-dark text-success border-success">
+    
+
+        <!-- +++++ Logged successfully +++++ -->
+        <div class="col-xs-8 border p-3" style="width: 80%;">
+            <div class="card bg-dark text-light border-success">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
@@ -16,13 +15,11 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in, Alex!') }}
                 </div>
 
                 <div class="card-footer text-center"><i class="fas fa-tools"></i></div>
             </div>
-
         </div>
-    </div>
-</div>
+        
 @endsection
