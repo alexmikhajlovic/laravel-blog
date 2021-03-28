@@ -33,7 +33,8 @@
                             {{ Auth::user()->name }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right bg-dark text-center shadow" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right bg-dark shadow" aria-labelledby="navbarDropdown">
+                            <a href="{{ url('/admin') }}" class="dropdown-item text-light bg-dark"><i class="fas fa-house-user"></i> Dashboard</a>
                             <a href="{{ url('/') }}" class="dropdown-item text-light bg-dark"><i class="fas fa-home"></i> Home</a>
                             <a class="dropdown-item text-danger bg-dark" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

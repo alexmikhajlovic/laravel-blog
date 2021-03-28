@@ -42,10 +42,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->validate([
+            'title'=>'required|unique:posts'
+        ]);
         $data = $request->all();
         $user_id = Auth::id();
 
-        dd($data);
+        // dd($data);
 
         $newPost = new Post();
 
@@ -56,7 +59,7 @@ class PostController extends Controller
 
         $newPost->save();
 
-        return redirect()->view('admin.post.index');
+        return redirect()->route('post.index');
     }
 
     /**
@@ -106,9 +109,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();
+
+        $post->update($data);
+
+        return redirect()->route('post.index');
     }
 
     /**
@@ -117,8 +124,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('post.index');
     }
 }

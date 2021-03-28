@@ -25,21 +25,18 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <i class="fas fa-home"></i>
-                </a>
+                <!-- Logo -->
+                <a class="navbar-brand" href="{{ url('/') }}"><i class="fas fa-home"></i></a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -52,11 +49,12 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right bg-dark text-center shadow" aria-labelledby="navbarDropdown">
+                                <!-- User name -->
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>{{ Auth::user()->name }}</a>
+                                
+                                <!-- Dropdown menu -->
+                                <div class="dropdown-menu dropdown-menu-right bg-dark shadow" aria-labelledby="navbarDropdown">
+                                    <a href="{{ url('/admin') }}" class="dropdown-item text-light bg-dark"><i class="fas fa-house-user"></i> Dashboard</a>
                                     <a href="{{ url('/') }}" class="dropdown-item text-light bg-dark"><i class="fas fa-home"></i> Home</a>
                                     <a class="dropdown-item text-danger bg-dark" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

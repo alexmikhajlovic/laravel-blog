@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <div class="col-xs-8 border p-3 text-light text-center" style="width: 80%;">
+    <div class="col-xs-8 p-4 text-light text-center" style="width: 80%;">
         <h1>{{$selected_post->title}}</h1>
 
         <p class="lead mb-5">{{$selected_post->content}}</p>
