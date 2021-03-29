@@ -79,6 +79,7 @@
 
                 <div class="links">
                     <a href="{{route('guest.posts.index')}}"><i class="far fa-newspaper"></i></a>
+                    <a href="{{route('guest.contact')}}"><i class="far fa-envelope"></i></a>
                 </div>
             </div>
         </div>

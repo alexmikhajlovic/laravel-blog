@@ -5,7 +5,9 @@
     <div class="col-xs-8 p-4 text-light text-center" style="width: 80%;">
         <h1>{{$selected_post->title}}</h1>
 
-        <p class="lead mb-5">{{$selected_post->content}}</p>
+        <div><img src="{{ asset('storage/'.$selected_post->cover) }}" alt="{{$selected_post->title}}" style="max-height: 300px; border-radius: 7px;"></div>
+
+        <p class="lead mb-5 p-3">{{$selected_post->content}}</p>
 
         <div class="d-flex justify-content-around">
             <p><span>{{$selected_post->user->name}}</span> - <span>{{$selected_post->user->email}}</span></p>

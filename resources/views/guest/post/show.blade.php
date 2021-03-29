@@ -9,12 +9,16 @@
                 <h1>{{$post->title}}</h1>
             </div>
 
-            <div class="card-body">
+            <div class="card-body text-center">
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                 @endif
+
+                <div class="text-center p-3">
+                    <img src="{{ asset('storage/'.$post->cover) }}" alt="{{$post->title}}" style="max-height: 300px; border-radius: 5px;">
+                </div>
 
                 <p class="lead">{{ $post->content }}</p>
 

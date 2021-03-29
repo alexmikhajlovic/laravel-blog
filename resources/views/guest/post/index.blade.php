@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Our Posts')
+@section('title', 'Discover Our Posts')
 
 @section('content')
 
@@ -24,7 +24,9 @@
                         </div>
                     @endif
 
-                    <p class="text-truncate">{{ $post->content }}</p>
+                    <div class="text-center"><img src="{{ asset('storage/'.$post->cover) }}" alt="{{$post->title}}" style="height: 200px; border-radius: 7px;"></div>
+
+                    <p class="text-truncate p-2">{{ $post->content }}</p>
 
                     <div class="card-footer text-center">
                         <a href="{{ route('guest.posts.show',$post->slug) }}" target="_blank" rel="noopener noreferrer" class="btn btn-info btn-sm">View more</a>

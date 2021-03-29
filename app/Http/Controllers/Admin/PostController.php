@@ -52,11 +52,11 @@ class PostController extends Controller
         $newPost = new Post();
 
         $newPost->user_id = $user_id;
+
         $newPost->slug = Str::slug($data['title']);
 
         $coverPath = Storage::put('post_covers', $data['image']);
         $data['cover'] = $coverPath;
-        $newPost->cover = $data['cover'];
 
         $newPost->fill($data);
 
@@ -115,6 +115,16 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $data = $request->all();
+        
+        if($data['title'] != $post->title){
+            $slug = Str::slug($data['title']);
+            $data['slug'] = $slug;
+        }
+
+        if(array_key_exists('image',$data)) {
+            $coverPath = Storage::put('post_covers', $data['image']);
+            $data['cover'] = $coverPath;
+        };
 
         $post->update($data);
 

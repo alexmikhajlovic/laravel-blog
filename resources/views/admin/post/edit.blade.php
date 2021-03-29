@@ -17,6 +17,24 @@
                     <label for="inputCover" class="form-label">Image</label>
                     <input class="form-control form-control-sm" id="inputCover" type="file" name="image">
                 </div>
+                @if($selected_post->cover)
+                <div class="alert alert-success" role="alert">
+                    <ul>
+                        <li>
+                            <p>Image uploaded successfully</p>
+                            <img src="{{ asset('storage/'.$selected_post->cover) }}" alt="" style="max-height: 150px;">
+                        </li>
+                    </ul>
+                </div>
+                @else
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <li>
+                            <p>Image not found</p>
+                        </li>
+                    </ul>
+                </div>
+                @endif
                 <!-- Content -->
                 <div class="mb-3">
                     <label for="inputContent">Content</label>

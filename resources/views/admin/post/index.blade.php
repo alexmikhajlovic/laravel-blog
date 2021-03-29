@@ -14,6 +14,7 @@
                 <tr>
                     <th scope="col"><i class="fas fa-hashtag"></i></th>
                     <th scope="col"><i class="fas fa-user"></i></th>
+                    <th scope="col"><i class="far fa-image"></i></th>
                     <th scope="col"><i class="far fa-file-alt"></i></th>
                     <th scope="col"><i class="far fa-calendar-alt"></i></th>
                     <th scope="col"><i class="fas fa-tools"></i></th>
@@ -24,8 +25,9 @@
                 <tr>
                     <th scope="row">{{$post->id}}</th>
                     <td>{{$post->user->name}}</td>
+                    <td><img src="{{ asset('storage/'.$post->cover) }}" alt="{{$post->title}}" style="max-width: 50px; border-radius: 7px;"></td>
                     <td>{{$post->title}}</td>
-                    <td>{{$post->created_at}}</td>
+                    <td><small>{{$post->created_at}}</small></td>
                     <td>
                         <!-- Info -->
                         <a href="{{ route('post.show', $post->id) }}" class="btn text-primary"><i class="fas fa-info-circle"></i></a>
