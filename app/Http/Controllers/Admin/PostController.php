@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use App\Post;
 
 class PostController extends Controller
@@ -48,12 +49,14 @@ class PostController extends Controller
         $data = $request->all();
         $user_id = Auth::id();
 
-        // dd($data);
-
         $newPost = new Post();
 
         $newPost->user_id = $user_id;
         $newPost->slug = Str::slug($data['title']);
+
+        $coverPath = Storage::put('post_covers', $data['image']);
+        $data['cover'] = $coverPath;
+        $newPost->cover = $data['cover'];
 
         $newPost->fill($data);
 
